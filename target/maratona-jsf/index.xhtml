@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:body>
+    <p:spinner/><br/>
+    <p:importEnum type="br.com.jester.maratonajsf.model.enums.Turno" var="Turno"
+                  allSuffix="ALL_ENUM_VALUES"/>
+
+    <h:outputLabel value="Hello, world"/><br/>
+    <h:outputLabel value="#{estudanteRegistrarBean.estudante.nome}"/><br/>
+    <h:outputLabel value="#{estudanteRegistrarBean.estudante.nota1 eq estudanteRegistrarBean.estudante.nota2}"/><br/>
+    <h:outputLabel value="Turno: "/>
+    <h:outputLabel value="#{estudanteRegistrarBean.estudante.turno.equals(Turno.NOTURNO)}"/><br/>
+    <!--Arrays-->
+    <h:outputLabel value="#{estudanteRegistrarBean.nomesArray[0]}
+    #{estudanteRegistrarBean.nomesArray[1]} #{estudanteRegistrarBean.nomesArray[2]}"/><br/>
+
+    <!--ui:Repeat array-->
+    <ui:repeat value="#{estudanteRegistrarBean.nomesArray}" var="nome">
+        <h:outputLabel value="#{nome}"/><br/>
+    </ui:repeat>
+
+    <!--Lista-->
+    <h:outputLabel value="#{estudanteRegistrarBean.nomesLista.get(0)}
+    #{estudanteRegistrarBean.nomesLista.get(1)} #{estudanteRegistrarBean.nomesLista.get(2)}"/><br/>
+
+    <!--ui:Repeat Lista-->
+    <ui:repeat value="#{estudanteRegistrarBean.nomesLista}" var="nome">
+        <h:outputLabel value="#{nome}"/><br/>
+    </ui:repeat>
+
+    <!--ui:repeat SET-->
+    <h:outputLabel value="----------Repeat Set------------"/><br/>
+    <ui:repeat value="#{estudanteRegistrarBean.nomesSet}" var="nome">
+        <h:outputLabel value="#{nome}"/><br/>
+    </ui:repeat>
+
+    <!--MAP-->
+    <h:outputLabel value="---------- MAP ------------"/><br/>
+    <h:outputLabel value="#{estudanteRegistrarBean.nomesMap.get('Silvano')}"/><br/>
+
+    <ui:repeat value="#{estudanteRegistrarBean.nomesMap.entrySet()}" var="entry">
+        <h:outputLabel value="#{entry}"/><br/>
+    </ui:repeat>
+</h:body>
+</html>
